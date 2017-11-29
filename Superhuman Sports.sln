@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superhuman Sports", "Superhuman Sports.csproj", "{83791978-6DFD-F134-AFC8-59AAF2E24658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superhuman Sports.Player", "Superhuman Sports.Player.csproj", "{83791978-6DFD-F134-AFC8-59AAF2E24658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superhuman Sports.Editor", "Superhuman Sports.Editor.csproj", "{FD039CEB-6187-E123-34B2-710688C97AF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83791978-6DFD-F134-AFC8-59AAF2E24658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD039CEB-6187-E123-34B2-710688C97AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD039CEB-6187-E123-34B2-710688C97AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD039CEB-6187-E123-34B2-710688C97AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD039CEB-6187-E123-34B2-710688C97AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
