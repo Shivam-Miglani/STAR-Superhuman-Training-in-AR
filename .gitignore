@@ -203,3 +203,18 @@ sysinfo.txt
 *.stackdump
 project.lock.json
 App/[pP]layers/
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
+Assets/Library/ShaderCache/
+Assets/Library/metadata/
+
