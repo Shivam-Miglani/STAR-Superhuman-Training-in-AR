@@ -178,6 +178,9 @@
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\WindowOcclusion.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\UnlitConfigurable.cginc" />
      <None Include="Assets\Assets\HoloToolkit\UX\Shaders\3DTextShader.shader" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>/Users/mariekegeleers/Documents/InformaticaMa1/Building Serious Games/SuperhumanSportsProject/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
