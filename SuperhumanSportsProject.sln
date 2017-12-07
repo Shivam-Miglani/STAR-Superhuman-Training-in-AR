@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperhumanSportsProject", "Assembly-CSharp.csproj", "{5879815A-7599-C874-A374-9DF496B93495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperhumanSportsProject", "Assembly-CSharp-Editor.csproj", "{23269FF7-EE0E-A2EA-3DF5-DB4E230C3366}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5879815A-7599-C874-A374-9DF496B93495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5879815A-7599-C874-A374-9DF496B93495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5879815A-7599-C874-A374-9DF496B93495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5879815A-7599-C874-A374-9DF496B93495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23269FF7-EE0E-A2EA-3DF5-DB4E230C3366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23269FF7-EE0E-A2EA-3DF5-DB4E230C3366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23269FF7-EE0E-A2EA-3DF5-DB4E230C3366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23269FF7-EE0E-A2EA-3DF5-DB4E230C3366}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
