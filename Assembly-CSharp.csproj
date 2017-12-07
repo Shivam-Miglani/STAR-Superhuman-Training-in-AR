@@ -699,6 +699,7 @@
      <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Input\TestEventHandler.cs" />
      <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Utilities\ReflectionTestBehaviour.cs" />
      <Compile Include="Assets\Assets\MappingPlaceholderScript.cs" />
+     <Compile Include="Assets\Lava_Flowing_Shader\Scripts\ScrollingUVs_Layers.cs" />
      <Compile Include="Assets\MoveWithKeys.cs" />
      <Compile Include="Assets\OnPath.cs" />
      <Compile Include="Assets\RedScreen.cs" />
@@ -712,10 +713,14 @@
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\VertexLitConfigurable.cginc" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Prototyping\Shaders\UnlitTransparentTriplanar.shader" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\VolumeRenderThickSlice.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
      <None Include="Assets\Assets\HoloToolkit-Examples\UX\Materials\AcrylicReflectiveTransparent.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\FastConfigurable.cginc" />
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Diffuse_Lava_Distort.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\FastConfigurable2Sided.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort_Transparent.shader" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\math.cginc" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\UnlitNoDepthTest.shader" />
@@ -727,6 +732,7 @@
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\StandardFast.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\LambertianConfigurable.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\BlinnPhongConfigurableTransparent.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\ReadMe.txt" />
      <None Include="Assets\Assets\HoloToolkit\SpatialMapping\Shaders\Wireframe.shader" />
      <None Include="Assets\Assets\HoloToolkit\Input\Shaders\CursorShader.shader" />
      <None Include="Assets\Assets\HoloToolkit\Input\Shaders\EditorHands.shader" />
