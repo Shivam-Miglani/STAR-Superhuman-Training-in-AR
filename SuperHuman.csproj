@@ -883,6 +883,8 @@
     <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Utilities\ReflectionTestBehaviour.cs" />
     <Compile Include="Assets\Assets\LineDrawer.cs" />
     <Compile Include="Assets\Assets\MappingPlaceholderScript.cs" />
+    <Compile Include="Assets\OnPath.cs" />
+    <Compile Include="Assets\RedScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />
