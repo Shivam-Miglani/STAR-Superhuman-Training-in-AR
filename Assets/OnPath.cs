@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OnPath : MonoBehaviour {
 	
 	public static bool onPath = true;
+	public Text textObject;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +15,6 @@ public class OnPath : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//RaycastHit hit;
 
 		if(Physics.Raycast (transform.position, transform.InverseTransformDirection(Vector3.down), 20)) {
 			if (!onPath) {
@@ -26,5 +27,6 @@ public class OnPath : MonoBehaviour {
 			}
 			onPath = false;
 		}
+		this.textObject.text = string.Format("Raycast: {0:G2}", onPath);
 	}
 }
