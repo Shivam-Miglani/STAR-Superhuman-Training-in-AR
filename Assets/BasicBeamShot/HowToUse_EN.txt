@@ -1,0 +1,17 @@
+"SimpleBeamShot Free"
+
+Thank you for Download.
+This asset is simple beam bullets.
+
+Can be fired by placing the BasicBeamShot.prefab or GeroBeamShot.prefab to your project,
+
+From "Beam Param" on the script,
+The color in the "Beam Color"
+The Speed of Beam in "Animation Spd"
+The size of Beam in "Scale"
+The flying distance of Beam in "MaxLength"
+
+this asset is done the collision detection of an object other than the "NoBeamHit" and Ignore Raycast" Layer.
+
+2015/01/04
+Bimuman
