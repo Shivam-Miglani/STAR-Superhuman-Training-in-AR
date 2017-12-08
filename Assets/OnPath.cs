@@ -6,9 +6,9 @@ public class OnPath : MonoBehaviour
 {
 
     public static bool onPath = true;
-
-    // Use this for initialization
-    void Start()
+	public LayerMask mask;
+	// Use this for initialization
+	void Start()
     {
 
     }
@@ -20,7 +20,7 @@ public class OnPath : MonoBehaviour
 		if (!MappingPlaceholderScript.scanning)
 		{
 			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 20))
+			if (Physics.Raycast(transform.position, Vector3.down, out hit, 100, mask))
 			{
 				Debug.DrawLine(transform.position, hit.point);
 				Debug.Log(string.Format("Position: {0}", transform.position.ToString()));

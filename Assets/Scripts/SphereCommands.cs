@@ -73,7 +73,7 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
     private void Start()
     {
         NowShot = null;
-        InputManager.Instance.PushFallbackInputHandler(gameObject);
+		//InputManager.Instance.PushFallbackInputHandler(gameObject);
     }
     // Called by GazeGestureManager when the user performs a Select gesture    
     void Update()

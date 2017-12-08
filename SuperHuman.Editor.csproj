@@ -271,6 +271,10 @@
       <Project>{BF95F92D-3BAA-FAF3-9058-02EA310C69DC}</Project>
       <Name>SuperHuman</Name>
     </ProjectReference>
+    <ProjectReference Include="SuperHuman.unityproj">
+      <Project>{BF95F92D-3BAA-FAF3-9058-02EA310C69DC}</Project>
+      <Name>SuperHuman</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Assets\HoloToolkit\BuildAndDeploy\Editor\BuildDeployPortal.cs" />
@@ -401,7 +405,15 @@
     <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\macro.cginc" />
     <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\WindowOcclusion.shader" />
     <None Include="Assets\Assets\Superhuman Sports\ProjectSettings\ProjectVersion.txt" />
+    <None Include="Assets\BasicBeamShot\HowToUse_EN.txt" />
+    <None Include="Assets\BasicBeamShot\HowToUse_JP.txt" />
+    <None Include="Assets\BasicBeamShot\sh\AddColor_sh.shader" />
+    <None Include="Assets\BasicBeamShot\sh\Add_UVScroll_sh.shader" />
+    <None Include="Assets\BasicBeamShot\sh\BeamLine_sh.shader" />
+    <None Include="Assets\BasicBeamShot\sh\GeroBeam_sh.shader" />
+    <None Include="Assets\BasicBeamShot\sh\Sprite_Add_sh.shader" />
     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
+    <None Include="Assets\Resources\Wireframe.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
