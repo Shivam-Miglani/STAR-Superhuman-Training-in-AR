@@ -16,23 +16,29 @@ public class OnPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.InverseTransformDirection(Vector3.down), 20))
-        {
-            if (!onPath)
-            {
-                Debug.Log("On path");
-            }
-            onPath = true;
-        }
-        else
-        {
-            if (onPath)
-            {
-                Debug.Log("Not on path");
-            }
-            onPath = false;
-        }
+		//RaycastHit hit;
+		if (!MappingPlaceholderScript.scanning)
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 20))
+			{
+				Debug.DrawLine(transform.position, hit.point);
+				Debug.Log(string.Format("Position: {0}", transform.position.ToString()));
+				if (!onPath)
+				{
+					Debug.Log("On path");
+				}
+				onPath = true;
+			}
+			else
+			{
+				if (onPath)
+				{
+					Debug.Log("Not on path");
+				}
+				onPath = false;
+			}
+		}
+       
     }
 }

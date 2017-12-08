@@ -10,19 +10,24 @@ public class RedScreen : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-    }
+		redCanvas.SetActive(false);
+	}
 
     // Update is called once per frame
     void Update()
     {
-        if (OnPath.onPath)
-        {
-            redCanvas.SetActive(false);
-        }
-        else
-        {
-            redCanvas.SetActive(true);
-        }
+		if (!MappingPlaceholderScript.scanning)
+		{
+			if (OnPath.onPath)
+			{
+				Debug.Log("Inside RedScreen's update function onPath true");
+				redCanvas.SetActive(false);
+			}
+			else
+			{
+				Debug.Log("Inside RedScreen's update function onPath false");
+				redCanvas.SetActive(true);
+			}
+		}
     }
 }

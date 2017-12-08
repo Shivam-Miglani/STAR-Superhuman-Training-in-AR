@@ -15,18 +15,24 @@ public class MappingPlaceholderScript : MonoBehaviour
 	public GameObject g;
 	private SpatialUnderstandingDllTopology.TopologyResult[] resultsTopology = new SpatialUnderstandingDllTopology.TopologyResult[512];
 
+
+	int frameCount;
+	IntPtr statsPtr;
+	public static bool scanning = true;
+
+
 	private bool draw = true;
 
 
 	// Use this for initialization
 	void Start()
 	{
-		this.scanning = true;
+		scanning = true;
 	}
 
 	public void ScannedEnough()
 	{
-		if (this.scanning)
+		if (scanning)
 		{
 			Debug.Log(resultsTopology);
 			SpatialUnderstanding.Instance.RequestFinishScan();
@@ -36,7 +42,7 @@ public class MappingPlaceholderScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (this.scanning)
+		if (scanning)
 		{
 			this.getSpatialStatistics();
 		}
@@ -65,7 +71,7 @@ public class MappingPlaceholderScript : MonoBehaviour
 			if (statistics.HorizSurfaceArea >= 5)
 			{
 				ScannedEnough();
-				this.scanning = false;
+				scanning = false;
 			}
 		}
 
@@ -105,9 +111,10 @@ public class MappingPlaceholderScript : MonoBehaviour
 				{
 
 					this.TextObject.text = string.Format(" Rect: {0:G2}, {1:G2}", rect.position.x, rect.position.y);
-					g = GameObject.CreatePrimitive(PrimitiveType.Plane);
+					//g = GameObject.CreatePrimitive(PrimitiveType.Plane);
 					g.transform.position = rect.position;
-					g.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+					
+					
 					//g.transform.
 					break;
 
@@ -117,11 +124,6 @@ public class MappingPlaceholderScript : MonoBehaviour
 
 		}
 	}
-
-
-	int frameCount;
-	IntPtr statsPtr;
-	bool scanning;
 
 
 }
