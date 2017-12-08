@@ -1,0 +1,20 @@
+"SimpleBeamShot Free"
+
+DLありがとうございます。このアセットは
+シンプルなビーム弾を追加するアセットです。
+
+BasicBeamShot.prefab、GeroBeamShot.prefabをプロジェクトに配置する事で発射でき、
+"Beam Param"スクリプト上から
+Beam Colorで色
+Animation Spdでビームの速度
+Scaleでビームの大きさ
+MaxLengthでビームの飛距離を設定する事が可能です。
+
+また、このアセットは"NoBeamHit"及び"Ignore Raycast"以外のレイヤーとの当たり判定を行います。
+
+2015/01/04
+ビームマン
+
+mail:kokbelia@hotmail.com
+web:http://www43.atwiki.jp/beamman/
+
