@@ -218,3 +218,6 @@ ehthumbs.db
 Assets/Library/ShaderCache/
 Assets/Library/metadata/
 
+*.meta
+*.csproj
+*.meta
