@@ -217,7 +217,3 @@ ehthumbs.db
 [Dd]esktop.ini
 Assets/Library/ShaderCache/
 Assets/Library/metadata/
-
-*.meta
-*.csproj
-*.meta
