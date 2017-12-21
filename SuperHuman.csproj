@@ -216,6 +216,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="SuperHuman.Plugins.unityproj">
+      <Project>{D3F7389F-8442-0A36-B4F3-B679434766B7}</Project>
+      <Name>SuperHuman.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs" />
     <Compile Include="Assets\Assets\HoloToolkit\Boundary\Scripts\SceneContentAdjuster.cs" />
     <Compile Include="Assets\Assets\HoloToolkit\Input\Scripts\Cursor\AnimatedCursor.cs" />
@@ -903,6 +909,10 @@
     <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
     <Compile Include="Assets\Scripts\SphereCommands.cs" />
     <Compile Include="Assets\Scripts\WorldCursor.cs" />
+    <Compile Include="Assets\Simple Explosion\Demo\Script (for Demo)\ExplosionControl.cs" />
+    <Compile Include="Assets\Simple Explosion\Scripts\GraphicExplosion.cs" />
+    <Compile Include="Assets\Simple Explosion\Scripts\light_control.cs" />
+    <Compile Include="Assets\Simple Explosion\Scripts\PhysicalExplosion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />
@@ -973,6 +983,7 @@
     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\Resources\Wireframe.shader" />
+    <None Include="Assets\Simple Explosion\Shader\Exposion.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

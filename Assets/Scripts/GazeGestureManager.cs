@@ -23,10 +23,10 @@ public class GazeGestureManager : MonoBehaviour
         recognizer.Tapped += (args) =>
         {
             // Send an OnSelect message to the focused object and its ancestors.
-            if (FocusedObject != null)
-            {
-                cursor.SendMessageUpwards("Shooting", SendMessageOptions.DontRequireReceiver);
-            }
+           // if (FocusedObject != null)
+           // {
+                cursor.SendMessageUpwards("shooting", SendMessageOptions.DontRequireReceiver);
+            //}
         };
         recognizer.StartCapturingGestures();
     }
