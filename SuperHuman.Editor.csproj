@@ -267,6 +267,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="SuperHuman.Plugins.unityproj">
+      <Project>{D3F7389F-8442-0A36-B4F3-B679434766B7}</Project>
+      <Name>SuperHuman.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="SuperHuman.csproj">
       <Project>{BF95F92D-3BAA-FAF3-9058-02EA310C69DC}</Project>
       <Name>SuperHuman</Name>
@@ -419,6 +423,7 @@
     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\Resources\Wireframe.shader" />
+    <None Include="Assets\Simple Explosion\Shader\Exposion.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

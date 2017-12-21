@@ -3,7 +3,7 @@
 public class WorldCursor : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
-
+    private float MaxGazeDistance = 2.5f; //new line
     // Use this for initialization
     void Start()
     {
@@ -20,7 +20,7 @@ public class WorldCursor : MonoBehaviour
         var gazeDirection = Camera.main.transform.forward;
 
         RaycastHit hitInfo;
-
+        meshRenderer.enabled = true;
         if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
             // If the raycast hit a hologram...
@@ -36,7 +36,9 @@ public class WorldCursor : MonoBehaviour
         else
         {
             // If the raycast did not hit a hologram, hide the cursor mesh.
-            meshRenderer.enabled = false;
+            meshRenderer.enabled = true; //false -> true
+            this.transform.position = headPosition + (gazeDirection * MaxGazeDistance); //new line
+            this.transform.rotation = Quaternion.FromToRotation(Vector3.up, gazeDirection); // -> gaze direction
         }
     }
 }

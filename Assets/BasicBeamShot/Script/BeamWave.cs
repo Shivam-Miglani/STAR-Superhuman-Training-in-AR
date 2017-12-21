@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BeamWave : MonoBehaviour {
 
-    public Color col = new Color(0.5f,0.5f,0.5f,0.5f);
+    public Color col = Color.cyan;// new Color(0.5f,0.5f,0.5f,0.5f);
     public float RotateSpd = 3.0f;
     public float AnmSpd = 2.0f;
     public float AnmTime = 0;

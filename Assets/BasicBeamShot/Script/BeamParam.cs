@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BeamParam : MonoBehaviour {
 	
-	public Color BeamColor = Color.green;
-	public float AnimationSpd = 0.1f;
+	public Color BeamColor = Color.cyan;
+	public float AnimationSpd = 1f; //0.1 <- 1
 	public float Scale = 1.0f;
 	public float MaxLength = 32.0f;
 	public bool bEnd = false;

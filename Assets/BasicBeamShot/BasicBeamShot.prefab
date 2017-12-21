@@ -265,12 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efe3bc5e3edb3e42b0a9a45eec91b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeamColor: {r: 1, g: 1, b: 1, a: 1}
-  AnimationSpd: 0.1
+  BeamColor: {r: 0, g: 0.6691177, b: 0.6691177, a: 1}
+  AnimationSpd: 1
   Scale: 1
   MaxLength: 32
-  bEnd: 0
-  bGero: 0
+  bEnd: 1
+  bGero: 1
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1

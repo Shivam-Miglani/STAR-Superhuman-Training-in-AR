@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96275be0c0ff7c84f8b9e98b3927177f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {r: 1, g: 1, b: 1, a: 0}
+  col: {r: 0.009, g: 0.7607844, b: 0.7607844, a: 0}
   RotateSpd: 3
   AnmSpd: 1
   AnmTime: 0
