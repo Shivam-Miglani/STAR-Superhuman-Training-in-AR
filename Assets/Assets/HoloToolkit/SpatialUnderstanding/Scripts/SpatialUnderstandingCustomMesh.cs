@@ -67,7 +67,7 @@ namespace HoloToolkit.Unity
         /// </summary>
         public bool CreateMeshColliders = true;
 
-        private bool drawProcessedMesh = true;
+        private bool drawProcessedMesh = false;
 
         // Properties
         /// <summary>

@@ -14,6 +14,7 @@ public class MappingPlaceholderScript : MonoBehaviour
 	// public Text TextObject;
 	public GameObject g;
 	public GameObject holocamera;
+	public GameObject lava;
 	private SpatialUnderstandingDllTopology.TopologyResult[] resultsTopology = new SpatialUnderstandingDllTopology.TopologyResult[512];
 
 
@@ -115,8 +116,9 @@ public class MappingPlaceholderScript : MonoBehaviour
 					//this.TextObject.text = string.Format(" Rect: {0:G2}, {1:G2}", rect.position.x, rect.position.y);
 					//g = GameObject.CreatePrimitive(PrimitiveType.Plane);
 					g.transform.position = new Vector3(holocamera.transform.position.x, rect.position.y + 0.02f, holocamera.transform.position.z);
-					
-					
+					lava.transform.position = new Vector3(holocamera.transform.position.x, rect.position.y - 1.0f, holocamera.transform.position.z);
+
+
 					//g.transform.
 					break;
 

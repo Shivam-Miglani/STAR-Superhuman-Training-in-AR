@@ -412,6 +412,11 @@
     <None Include="Assets\BasicBeamShot\sh\BeamLine_sh.shader" />
     <None Include="Assets\BasicBeamShot\sh\GeroBeam_sh.shader" />
     <None Include="Assets\BasicBeamShot\sh\Sprite_Add_sh.shader" />
+    <None Include="Assets\Lava_Flowing_Shader\ReadMe.txt" />
+    <None Include="Assets\Lava_Flowing_Shader\Shaders\Diffuse_Lava_Distort.shader" />
+    <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort.shader" />
+    <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort_Transparent.shader" />
+    <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\Resources\Wireframe.shader" />
   </ItemGroup>
