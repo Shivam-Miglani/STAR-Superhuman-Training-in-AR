@@ -7,7 +7,7 @@ using System.Linq;
 public class XRay : MonoBehaviour {
     public Material PathMaterial;
     public Material XRayMaterial;
-    private int MaxViewingDistance = 50;
+    private int MaxViewingDistance = 2;
     public LayerMask mask;
     private int Frames;
     private GameObject[] path;

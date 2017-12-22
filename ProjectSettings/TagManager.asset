@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tip
   - Bullet
+  - Path
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - CubeLayer
-  - 
+  - Lava
   - 
   - 
   - 

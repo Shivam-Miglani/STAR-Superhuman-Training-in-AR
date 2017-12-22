@@ -870,6 +870,7 @@
     <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Input\TestEventHandler.cs" />
     <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Utilities\ReflectionTestBehaviour.cs" />
     <Compile Include="Assets\Assets\MappingPlaceholderScript.cs" />
+    <Compile Include="Assets\Assets\XRay.cs" />
     <Compile Include="Assets\BasicBeamShot\Character Controllers\Sources\Scripts\MouseLook.cs" />
     <Compile Include="Assets\BasicBeamShot\SampleStage\GetUI.cs" />
     <Compile Include="Assets\BasicBeamShot\Script\AutoDestroy.cs" />
