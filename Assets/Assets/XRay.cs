@@ -11,7 +11,7 @@ public class XRay : MonoBehaviour {
     public LayerMask mask;
     private int Frames;
     private GameObject[] path;
-    public bool XRayActive = false;
+    public static bool XRayActive = true;
     KeywordRecognizer keywordRecognizer;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
 
@@ -48,14 +48,13 @@ public class XRay : MonoBehaviour {
     void Update () {
         RaycastHit hit;
 
-        if(this.XRayActive)
+        if(XRayActive)
         {
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, MaxViewingDistance, mask))
             {
                 hit.collider.GetComponent<Renderer>().material = XRayMaterial;
             }
-            
-            
+
             foreach (GameObject g in path)
             {
                 if (!g.name.Equals(hit.transform.gameObject.name)){
@@ -67,13 +66,13 @@ public class XRay : MonoBehaviour {
 
     public void ActivateXRay()
     {
-        this.XRayActive = true;
+        XRayActive = true;
         Debug.Log("XRAY ACTIVATED!!");
     }
 
     public void DeactivateXRay()
     {
-        this.XRayActive = false;
+        XRayActive = false;
         foreach (GameObject g in path)
         {
             g.GetComponent<Renderer>().material = PathMaterial;

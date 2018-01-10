@@ -22,7 +22,6 @@ public class OnPath : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(transform.position, Vector3.down, out hit, 100, mask))
 			{
-				Debug.DrawLine(transform.position, hit.point);
 				Debug.Log(string.Format("Position: {0}", transform.position.ToString()));
 				if (!onPath)
 				{
