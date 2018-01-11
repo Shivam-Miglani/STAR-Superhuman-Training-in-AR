@@ -124,6 +124,7 @@ public class MappingPlaceholderScript : MonoBehaviour
 
 				}
 				draw = false;
+				Energy.MapPlaced = true;
 			}
 
 		}
