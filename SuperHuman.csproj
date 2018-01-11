@@ -907,7 +907,9 @@
     <Compile Include="Assets\Lava_Flowing_Shader\Scripts\ScrollingUVs_Layers.cs" />
     <Compile Include="Assets\OnPath.cs" />
     <Compile Include="Assets\RedScreen.cs" />
+    <Compile Include="Assets\Scripts\Energy.cs" />
     <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\SphereCommands.cs" />
     <Compile Include="Assets\Scripts\WorldCursor.cs" />
     <Compile Include="Assets\Simple Explosion\Demo\Script (for Demo)\ExplosionControl.cs" />
