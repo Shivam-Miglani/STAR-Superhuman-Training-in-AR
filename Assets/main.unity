@@ -251,22 +251,6 @@ Prefab:
       value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 4230977256417528, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4230977256417528, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4230977256417528, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4230977256417528, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4230977256417528, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
@@ -279,7 +263,7 @@ Prefab:
     - target: {fileID: 114050673268119028, guid: 0f9a50f9056ad314a8455aa516c352a4,
         type: 2}
       propertyPath: spawnTime
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
@@ -289,6 +273,27 @@ GameObject:
   m_PrefabParentObject: {fileID: 1411793293556042, guid: e04bd2bb64d63504db2beefcf535cdbc,
     type: 2}
   m_PrefabInternal: {fileID: 139255673}
+--- !u!1 &1142407048 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1026149687415976, guid: e04bd2bb64d63504db2beefcf535cdbc,
+    type: 2}
+  m_PrefabInternal: {fileID: 139255673}
+--- !u!114 &1142407051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1142407048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5c23dfcdc38e14e9205facf49f6603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shot1: {fileID: 100002, guid: 5233ad8031c8bcc40a4ec895c2c8e74e, type: 2}
+  Shot2: {fileID: 100006, guid: 18e6997b0cea7f249bf0e687ba9da449, type: 2}
+  Wave: {fileID: 163602, guid: 2e71c373747c637418583232129f9bae, type: 2}
+  Disturbance: 2
+  ShotType: 0
 --- !u!1001 &1332164016
 Prefab:
   m_ObjectHideFlags: 0
@@ -390,6 +395,10 @@ Prefab:
         type: 2}
       propertyPath: m_Volume
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089018078920986, guid: 79b6f0607873fa54bad37b6e8962fde6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79b6f0607873fa54bad37b6e8962fde6, type: 2}

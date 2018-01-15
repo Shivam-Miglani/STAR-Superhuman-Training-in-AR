@@ -29,7 +29,7 @@ public class Health : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        DecreaseHealth(1);
+        //DecreaseHealth(1);
 		healthBar.sizeDelta = new Vector2(CurrentHealth, healthBar.sizeDelta.y);
 	}
 

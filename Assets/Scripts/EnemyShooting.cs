@@ -10,8 +10,11 @@ public class EnemyShooting : MonoBehaviour {
     private int count;
     public float Disturbance = 0;
     private GameObject NowShot;
-    Transform trans;
+    //Transform trans;
+    Vector3 Ori;
     AudioSource gunAudio;
+    Vector3 dir;
+    Vector3 destination;
 
     void Awake()
     {
@@ -21,9 +24,17 @@ public class EnemyShooting : MonoBehaviour {
     // Use this for initialization
     void Start () {
         NowShot = null;
-        trans = this.transform;
+        Ori = this.transform.position;
+        //trans = new UnityEngine.Transform
+        //{
+        //    position = new Vector3(0.000f, 0.000f, 2.5f), //this.transform.position;
+        //    rotation = this.transform.rotation,
+        //    localScale = this.transform.localScale
+        //};
         InvokeRepeating("enShooting", nextShoot, nextShoot);
-        InvokeRepeating("Move", 5f,5f);
+         dir = Random.insideUnitSphere;
+         destination = dir * 0.5f;
+        //InvokeRepeating("Move", 5f,5f);
     }
 	
 	// Update is called once per frame
@@ -32,17 +43,47 @@ public class EnemyShooting : MonoBehaviour {
          {
              NowShot.GetComponent<BeamParam>().bEnd = true;
          }
+        MoveSmooth();
     }
     void FixedUpdate()
     {
+
         // Turn the enemy to face the player.
         Turning();
+    }
+
+    void MoveSmooth()
+    {
+        Vector3 pos = this.transform.position;
+        // transform.position = Vector3.Lerp(pos, Ori + dir, 0.01f * Time.deltaTime);
+        //if(pos != (Ori + dir))
+        if (Vector3.Distance(Ori + dir, pos) > 0.5f)
+        {
+
+            Debug.Log(" -------------------------------------------------------------------------");
+            Debug.Log("current : " + pos);
+            Debug.Log("origin: " + (Ori).ToString("F8") + dir);
+            Debug.Log("distance:" + Vector3.Distance(Ori + dir, pos));
+            //this.transform.position += dir * Time.deltaTime;
+            this.transform.position = Vector3.Lerp(pos, Ori + dir, 0.5f * Time.deltaTime);
+            // this.transform.Translate(Ori + dir - this.transform.position) * 1f * time.deltatime;
+            Debug.Log("translate: " + ((Ori + dir - pos) * Time.deltaTime).ToString("F8"));
+            Debug.Log(" lerp" + (Vector3.Lerp(pos, Ori + dir, 1f * Time.deltaTime)).ToString("F8"));
+            Debug.Log("Time.deltaTime:" + Time.deltaTime);
+            Debug.Log(" -------------------------------------------------------------------------");
+        }
+        else
+        {
+            Debug.Log("<<<<<<<<<<<<<<<<<<<<");
+            dir = Random.insideUnitSphere;
+            destination = dir * 0.5f;
+        }
     }
 
     void Move()
     {
         Vector3 dir = Random.insideUnitSphere * 0.5f;
-        this.transform.position = trans.position + dir;
+        this.transform.position = Ori + dir;
     }
 
     void Turning()
@@ -61,8 +102,9 @@ public class EnemyShooting : MonoBehaviour {
 
     void enShooting()
     {
-        var playerPosition = Camera.main.transform.position;
-        var playerDirection = -this.transform.position + Camera.main.transform.position;
+        Vector3 randomised = Random.insideUnitCircle * 0.2f;
+        Vector3 playerPosition = Camera.main.transform.position - new Vector3 (0f,0.5f,0f) + randomised;
+        var playerDirection = -this.transform.position + playerPosition;
 
         Quaternion Rotation = Quaternion.LookRotation(playerDirection);
         
@@ -71,22 +113,14 @@ public class EnemyShooting : MonoBehaviour {
         if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
          {
             //If the raycast hit a the player...
-           //GameObject player = hitInfo.collider.GetComponent<EnemyHealth>();
-          // if (player != null)
-          //  {
-                //decrease the player health
-          //  }
+            // decrease health bar
         }
-        else
-        {
-        // If the raycast did not hit the player
-        }
-
+     
         gunAudio.Play();
         GameObject Bullet;
         Bullet = Shot1;
         //Fire
-        NowShot = (GameObject)Instantiate(Bullet, this.transform.position, Rotation);
+        NowShot = (GameObject)Instantiate(Bullet, this.transform.position - new Vector3 (0f,0f,0.5f), Rotation);
         Destroy(NowShot, 2.0f);
 
     }

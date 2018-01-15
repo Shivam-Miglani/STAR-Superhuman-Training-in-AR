@@ -575,7 +575,8 @@ AudioSource:
   m_GameObject: {fileID: 1089018078920986}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300004, guid: 8434b04884c414ac6b468e10945685e6,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 25f57a423322f5a45bf9490fe9d13300, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.65
@@ -634,7 +635,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -734,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11102cddde0e09344beaa334cff48453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shot1: {fileID: 100006, guid: 18e6997b0cea7f249bf0e687ba9da449, type: 2}
+  Shot1: {fileID: 1826772067302270, guid: b0100fc5324a09a438cd96fc1eb2a4ce, type: 2}
   nextShoot: 3
   Disturbance: 2
 --- !u!114 &114778441005056674
