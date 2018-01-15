@@ -411,7 +411,7 @@ MonoBehaviour:
   BeamColor: {r: 0.003, g: 0.7607844, b: 0.7607844, a: 1}
   AnimationSpd: 1
   Scale: 1
-  MaxLength: 32
+  MaxLength: 30.5
   bEnd: 0
   bGero: 1
 --- !u!120 &12000000

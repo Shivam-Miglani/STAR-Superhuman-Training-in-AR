@@ -699,6 +699,7 @@
      <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Input\TestEventHandler.cs" />
      <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Utilities\ReflectionTestBehaviour.cs" />
      <Compile Include="Assets\Assets\MappingPlaceholderScript.cs" />
+     <Compile Include="Assets\Assets\XRay.cs" />
      <Compile Include="Assets\BasicBeamShot\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\BasicBeamShot\SampleStage\GetUI.cs" />
      <Compile Include="Assets\BasicBeamShot\Script\AutoDestroy.cs" />
@@ -732,9 +733,20 @@
      <Compile Include="Assets\Holograms\Support\Spatial Mapping\SpatialMapping.cs" />
      <Compile Include="Assets\Holograms\Support\Underworld\UnderworldReset.cs" />
      <Compile Include="Assets\Holograms\Support\Underworld\UnderworldSound.cs" />
+     <Compile Include="Assets\Lava_Flowing_Shader\Scripts\ScrollingUVs_Layers.cs" />
+     <Compile Include="Assets\OnPath.cs" />
+     <Compile Include="Assets\RedScreen.cs" />
+     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\EnemyShooting.cs" />
+     <Compile Include="Assets\Scripts\Energy.cs" />
      <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
+     <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\SphereCommands.cs" />
      <Compile Include="Assets\Scripts\WorldCursor.cs" />
+     <Compile Include="Assets\Simple Explosion\Demo\Script (for Demo)\ExplosionControl.cs" />
+     <Compile Include="Assets\Simple Explosion\Scripts\GraphicExplosion.cs" />
+     <Compile Include="Assets\Simple Explosion\Scripts\light_control.cs" />
+     <Compile Include="Assets\Simple Explosion\Scripts\PhysicalExplosion.cs" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\UnlitConfigurable.shader" />
      <None Include="Assets\Assets\HoloToolkit\UX\Resources\Shaders\HUXButtonShader.shader" />
      <None Include="Assets\Assets\HoloToolkit\SpatialUnderstanding\Materials\SpatialUnderstandingSurface.shader" />
@@ -746,10 +758,15 @@
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Prototyping\Shaders\UnlitTransparentTriplanar.shader" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\VolumeRenderThickSlice.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
+     <None Include="Assets\Simple Explosion\Shader\Exposion.shader" />
      <None Include="Assets\Assets\HoloToolkit-Examples\UX\Materials\AcrylicReflectiveTransparent.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\FastConfigurable.cginc" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Diffuse_Lava_Distort.shader" />
      <None Include="Assets\BasicBeamShot\sh\Add_UVScroll_sh.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\FastConfigurable2Sided.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort_Transparent.shader" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />
      <None Include="Assets\BasicBeamShot\HowToUse_JP.txt" />
      <None Include="Assets\Assets\HoloToolkit-Examples\Medical\Shaders\math.cginc" />
@@ -766,6 +783,7 @@
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\StandardFast.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\LambertianConfigurable.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\BlinnPhongConfigurableTransparent.shader" />
+     <None Include="Assets\Lava_Flowing_Shader\ReadMe.txt" />
      <None Include="Assets\Assets\HoloToolkit\SpatialMapping\Shaders\Wireframe.shader" />
      <None Include="Assets\Assets\HoloToolkit\Input\Shaders\CursorShader.shader" />
      <None Include="Assets\Assets\HoloToolkit\Input\Shaders\EditorHands.shader" />
@@ -798,6 +816,9 @@
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\WindowOcclusion.shader" />
      <None Include="Assets\Assets\HoloToolkit\Utilities\Shaders\Obsolete\UnlitConfigurable.cginc" />
      <None Include="Assets\Assets\HoloToolkit\UX\Shaders\3DTextShader.shader" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>C:/Users/lx758/Documents/bsg/SuperHuman/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>F:/Software/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -826,7 +847,7 @@
  <HintPath>F:/Software/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/lx758/Documents/GitHub/SuperHuman/Assets/Assets/HoloToolkit/Utilities/Scripts/GLTF/Plugins/JsonNet/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/lx758/Documents/bsg/SuperHuman/Assets/Assets/HoloToolkit/Utilities/Scripts/GLTF/Plugins/JsonNet/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/lx758/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
