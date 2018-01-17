@@ -412,8 +412,8 @@ MonoBehaviour:
   AnimationSpd: 1
   Scale: 1
   MaxLength: 30.5
-  bEnd: 0
-  bGero: 1
+  bEnd: 1
+  bGero: 0
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

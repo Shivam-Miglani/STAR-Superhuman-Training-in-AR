@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : MonoBehaviour {
+public class EnemyShooting : MonoBehaviour
+{
     public GameObject Shot1;
     GameObject Bullet;
     GameObject focus;
     public float nextShoot = 3f;
-    private int count;
     public float Disturbance = 0;
+   // public GameObject player;
+    //private Collider playerc;
     private GameObject NowShot;
     //Transform trans;
     Vector3 Ori;
@@ -22,27 +24,23 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         NowShot = null;
         Ori = this.transform.position;
-        //trans = new UnityEngine.Transform
-        //{
-        //    position = new Vector3(0.000f, 0.000f, 2.5f), //this.transform.position;
-        //    rotation = this.transform.rotation,
-        //    localScale = this.transform.localScale
-        //};
+
         InvokeRepeating("enShooting", nextShoot, nextShoot);
-         dir = Random.insideUnitSphere;
-         destination = dir * 0.5f;
-        //InvokeRepeating("Move", 5f,5f);
+        dir = Random.insideUnitSphere;
+        destination = dir * 0.5f;
     }
-	
-	// Update is called once per frame
-	void Update () {
-         if (NowShot != null)
-         {
-             NowShot.GetComponent<BeamParam>().bEnd = true;
-         }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (NowShot != null)
+        {
+            NowShot.GetComponent<BeamParam>().bEnd = true;
+        }
         MoveSmooth();
     }
     void FixedUpdate()
@@ -59,22 +57,10 @@ public class EnemyShooting : MonoBehaviour {
         //if(pos != (Ori + dir))
         if (Vector3.Distance(Ori + dir, pos) > 0.5f)
         {
-
-            Debug.Log(" -------------------------------------------------------------------------");
-            Debug.Log("current : " + pos);
-            Debug.Log("origin: " + (Ori).ToString("F8") + dir);
-            Debug.Log("distance:" + Vector3.Distance(Ori + dir, pos));
-            //this.transform.position += dir * Time.deltaTime;
             this.transform.position = Vector3.Lerp(pos, Ori + dir, 0.5f * Time.deltaTime);
-            // this.transform.Translate(Ori + dir - this.transform.position) * 1f * time.deltatime;
-            Debug.Log("translate: " + ((Ori + dir - pos) * Time.deltaTime).ToString("F8"));
-            Debug.Log(" lerp" + (Vector3.Lerp(pos, Ori + dir, 1f * Time.deltaTime)).ToString("F8"));
-            Debug.Log("Time.deltaTime:" + Time.deltaTime);
-            Debug.Log(" -------------------------------------------------------------------------");
         }
         else
         {
-            Debug.Log("<<<<<<<<<<<<<<<<<<<<");
             dir = Random.insideUnitSphere;
             destination = dir * 0.5f;
         }
@@ -95,39 +81,49 @@ public class EnemyShooting : MonoBehaviour {
 
     IEnumerator Wait()
     {
-        print(Time.time);
-        yield return new WaitForSeconds(5);
-        print(Time.time);
+        Debug.Log(Time.time);
+        yield return new WaitForSecondsRealtime(5);
     }
 
     void enShooting()
     {
-        Vector3 randomised = Random.insideUnitCircle * 0.2f;
-        Vector3 playerPosition = Camera.main.transform.position - new Vector3 (0f,0.5f,0f) + randomised;
-        var playerDirection = -this.transform.position + playerPosition;
+       // Health h = Camera.main.GetComponent<Health>();
+        if (Health.CurrentHealth > 0f) {
+            Vector3 randomised = Random.insideUnitCircle * 0.2f;
+            Vector3 playerPosition = Camera.main.transform.position - new Vector3(0f, 0.5f, 0f) + randomised;
+            var playerDirection = -this.transform.position + playerPosition;
 
-        Quaternion Rotation = Quaternion.LookRotation(playerDirection);
-        
-         RaycastHit hitInfo;
+            Quaternion Rotation = Quaternion.LookRotation(playerDirection);
 
-        if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
-         {
-            //If the raycast hit a the player...
-            // decrease health bar
+            RaycastHit hitInfo;
+
+            gunAudio.Play();
+            GameObject Bullet;
+            Bullet = Shot1;
+            //Fire
+            NowShot = (GameObject)Instantiate(Bullet, this.transform.position - new Vector3(0f, 0f, 0.5f), Rotation);
+
+            if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
+            {
+
+                if (Camera.main.gameObject == hitInfo.collider.gameObject)
+                {   
+                    Health.DecreaseHealth(5);
+                }
+                //else
+                //{
+
+                //}
+            }
+            Destroy(NowShot, 2.0f);
+
         }
-     
-        gunAudio.Play();
-        GameObject Bullet;
-        Bullet = Shot1;
-        //Fire
-        NowShot = (GameObject)Instantiate(Bullet, this.transform.position - new Vector3 (0f,0f,0.5f), Rotation);
-        Destroy(NowShot, 2.0f);
+        else
+        {
+            return;
+        }
 
     }
 
-    int EnemyCount()
-    {
-        return count;
-    }
 
 }

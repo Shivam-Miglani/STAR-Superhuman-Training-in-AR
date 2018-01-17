@@ -5,13 +5,16 @@ using System.Collections.Generic;
 
 public class SphereCommands : MonoBehaviour, IInputClickHandler
 {
-    public GameObject Shot1;
     public GameObject Shot2;
     public GameObject Wave;
     GameObject Bullet;
     GameObject focus;
     private int count;
-    public float Disturbance = 0; public int ShotType = 0; private GameObject NowShot;
+    public float Disturbance = 0;
+    public Health health;
+    public Energy energy;
+   // public int ShotType = 0;
+    private GameObject NowShot;
 
 
     private void Start()
@@ -45,9 +48,9 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
     }
     void shooting()
     {
-       // if (GetComponent<Energy>().CurrentEnergy >= 1)
-       // {
-         //   GetComponent<Energy>().DecreaseEnergy(1);
+        if (energy.CurrentEnergy >= 10f && Health.CurrentHealth > 0f)
+        {
+            energy.DecreaseEnergy(10);
             GameObject wav = (GameObject)Instantiate(Wave, this.transform.position, this.transform.rotation);
             wav.transform.Rotate(Vector3.left, 90.0f);
             wav.GetComponent<BeamWave>().col = this.GetComponent<BeamParam>().BeamColor;
@@ -66,11 +69,12 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
                 print(count);
             }
 
-            //print(ex.name);
             ex.SetActive(true);
             Destroy(focus, 0.8f);
 
-       // }
+            focus.SetActive(false);
+
+        }
       //  else
       //  {
             //
