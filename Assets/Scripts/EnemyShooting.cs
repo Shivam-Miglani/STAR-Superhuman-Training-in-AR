@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject Shot1;
+    public GameObject Shot2;
     GameObject Bullet;
     GameObject focus;
     public float nextShoot = 3f;
@@ -37,10 +38,11 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NowShot != null)
+       /* if (NowShot != null)
         {
             NowShot.GetComponent<BeamParam>().bEnd = true;
         }
+        */
         MoveSmooth();
     }
     void FixedUpdate()
@@ -87,15 +89,16 @@ public class EnemyShooting : MonoBehaviour
 
     void enShooting()
     {
-       // Health h = Camera.main.GetComponent<Health>();
-        if (Health.CurrentHealth > 0f) {
+        // Health h = Camera.main.GetComponent<Health>();
+        if (Health.CurrentHealth > 0f)
+        {
             Vector3 randomised = Random.insideUnitCircle * 0.2f;
             Vector3 playerPosition = Camera.main.transform.position - new Vector3(0f, 0.5f, 0f) + randomised;
-            var playerDirection = -this.transform.position + playerPosition;
+            Vector3 playerDirection = -this.transform.position + playerPosition;
 
             Quaternion Rotation = Quaternion.LookRotation(playerDirection);
 
-            RaycastHit hitInfo;
+            //  RaycastHit hitInfo;
 
             gunAudio.Play();
             GameObject Bullet;
@@ -103,27 +106,47 @@ public class EnemyShooting : MonoBehaviour
             //Fire
             NowShot = (GameObject)Instantiate(Bullet, this.transform.position - new Vector3(0f, 0f, 0.5f), Rotation);
 
-            if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
-            {
+            StartCoroutine(particleTrackWaitToSet(2.0f, playerDirection));
+            /*
+                        if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
+                        {
 
-                if (Camera.main.gameObject == hitInfo.collider.gameObject)
-                {   
-                    Health.DecreaseHealth(5);
-                }
-                //else
-                //{
+                            if (Camera.main.gameObject == hitInfo.collider.gameObject)
+                            {   
+                                Health.DecreaseHealth(5);
+                            }
+                            //else
+                            //{
 
-                //}
-            }
-            Destroy(NowShot, 2.0f);
+                            //}
+                        }
+                        Destroy(NowShot, 2.0f);
+
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    */
 
         }
-        else
-        {
-            return;
-        }
+        Destroy(NowShot, 2.0f);
 
     }
 
+    IEnumerator particleTrackWaitToSet(float fTime, Vector3 playerDirection)
+    {
+        yield return new WaitForSeconds(fTime);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
+        {
+            if (Camera.main.gameObject == hitInfo.collider.gameObject)
+            {
+                Health.DecreaseHealth(5);
+            }
+           
+        }
+        //Destroy(NowShot, 2.0f);
+    }
 
 }

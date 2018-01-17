@@ -240,6 +240,15 @@ Prefab:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1003353337}
+    - target: {fileID: 4657077347852022, guid: 70116f9c39b74584a896a40600475967, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 114124294988501718, guid: 70116f9c39b74584a896a40600475967,
+        type: 2}
+      propertyPath: Shot2
+      value: 
+      objectReference: {fileID: 188626, guid: 947f81049f7593c48b3bd5dd178fe1bc, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70116f9c39b74584a896a40600475967, type: 2}
   m_IsPrefabParent: 0
@@ -277,9 +286,58 @@ Prefab:
       propertyPath: spawnTime
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1609685632636724, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f9a50f9056ad314a8455aa516c352a4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &871347239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 871347241}
+  - component: {fileID: 871347240}
+  m_Layer: 0
+  m_Name: Pss_Combat_Attacks_Fire_1_Cartoon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &871347240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871347239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9832ce22cb12aec469bcbe3fff7430e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystemToSpawn: {fileID: 188626, guid: 947f81049f7593c48b3bd5dd178fe1bc,
+    type: 2}
+  isTouchDevice: 0
+  spawnByTouchingMe: 0
+  keyInputToSpawn: 97
+--- !u!4 &871347241
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871347239}
+  m_LocalRotation: {x: 0.07140708, y: -0.99709946, z: -0.01107579, w: 0.023898197}
+  m_LocalPosition: {x: 0.4250937, y: 0.39018452, z: 5.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -1.07, y: -177.177, z: -8.219001}
 --- !u!1 &1003353337 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1411793293556042, guid: e04bd2bb64d63504db2beefcf535cdbc,
@@ -301,11 +359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5c23dfcdc38e14e9205facf49f6603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shot1: {fileID: 100002, guid: 5233ad8031c8bcc40a4ec895c2c8e74e, type: 2}
   Shot2: {fileID: 100006, guid: 18e6997b0cea7f249bf0e687ba9da449, type: 2}
   Wave: {fileID: 163602, guid: 2e71c373747c637418583232129f9bae, type: 2}
   Disturbance: 2
-  ShotType: 0
+  health: {fileID: 0}
+  energy: {fileID: 0}
 --- !u!1001 &1332164016
 Prefab:
   m_ObjectHideFlags: 0

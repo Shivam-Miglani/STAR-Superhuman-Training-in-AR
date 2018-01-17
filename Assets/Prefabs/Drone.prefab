@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shot1: {fileID: 1826772067302270, guid: b0100fc5324a09a438cd96fc1eb2a4ce, type: 2}
+  Shot2: {fileID: 188626, guid: 947f81049f7593c48b3bd5dd178fe1bc, type: 2}
   nextShoot: 3
   Disturbance: 2
 --- !u!136 &136077594031065208
