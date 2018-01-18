@@ -3348,9 +3348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClientRole: 0
-  ServerAddress: 145.94.150.225
+  ServerAddress: 145.94.149.130
   defaultSessionName: DefaultSession
-  defaultRoomName: DefaultRoom
+  defaultRoomName: shRoom
   KeepRoomAlive: 0
   ServerPort: 20602
   connectOnAwake: 1
@@ -4565,7 +4565,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnManager: {fileID: 1333542391}
+  isCorePlaced: 0
+  isFirstPlayer: 0
   core: {fileID: 1772006704}
+  idsFound: 0
+  path: {fileID: 983158946}
+  AnchorDebugText: {fileID: 1392269358}
 --- !u!1 &1845936201
 GameObject:
   m_ObjectHideFlags: 0

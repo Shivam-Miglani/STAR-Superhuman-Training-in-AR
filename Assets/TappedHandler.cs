@@ -20,17 +20,22 @@ public class TappedHandler : MonoBehaviour
 {
 	public PrefabSpawnManager spawnManager;
 	public bool isCorePlaced = false;
-	public static bool isFirstPlayer = false;
+	public bool isFirstPlayer = false;
 	public GameObject core;
+	public bool idsFound = false;
+	public GameObject path;
+	/// <summary>
+	/// Debug text for displaying information.
+	/// </summary>
+	public TextMesh AnchorDebugText;
 
 
 
-
-  void Start()
+	void Start()
   {
 		this.recognizer = new UnityEngine.XR.WSA.Input.GestureRecognizer();
 		this.recognizer.StartCapturingGestures();
-		bool isFirstPlayer = CheckFirstPlayer();
+		
 		//if(HoloToolkit.Sharing.Tests.ImportExportAnchorManager.AnchorDebugText != null & isFirstPlayer){
 		//	HoloToolkit.Sharing.Tests.ImportExportAnchorManager.AnchorDebugText.text += "\nYou are player 1";
 		//}
@@ -39,11 +44,39 @@ public class TappedHandler : MonoBehaviour
 
 	private void Update()
 	{
-		if (!MappingPlaceholderScript.scanning & !isCorePlaced & isFirstPlayer)
+		if (SharingStage.Instance.SessionUsersTracker.CurrentUsers.Count > 0)
 		{
-			Vector3 retval = Camera.main.transform.position + Camera.main.transform.forward * 4;
-			core.transform.position = Vector3.Lerp(core.transform.position, retval, 0.2f);
-			this.recognizer.TappedEvent += OnTapped;
+			idsFound = true;
+		} else
+		{
+			idsFound = false;
+		}
+		if (idsFound)
+		{
+			isFirstPlayer = CheckFirstPlayer();
+			
+			if (!MappingPlaceholderScript.scanning & !isCorePlaced & isFirstPlayer)
+			{
+				Debug.Log("ONLY FIRST PLAYER CAN PLACE THE CORE *****************************");
+				Debug.Log(isCorePlaced);
+				Debug.Log(isFirstPlayer);
+				if (AnchorDebugText != null)
+				{
+					AnchorDebugText.text = "\nFIRST PLAYER";
+					
+				}
+				
+				Vector3 retval = Camera.main.transform.position + Camera.main.transform.forward * 4;
+				retval = new Vector3(retval.x, path.transform.position.y, retval.z);
+				core.transform.position = Vector3.Lerp(core.transform.position, retval, 0.2f);
+				this.recognizer.TappedEvent += OnTapped;
+			}
+			if (AnchorDebugText != null & !isFirstPlayer)
+			{
+				AnchorDebugText.text = "\nNOT FIRST PLAYER";
+				
+			}
+
 		}
 	}
 	void OnTapped(UnityEngine.XR.WSA.Input.InteractionSourceKind source, int tapCount, Ray headRay)
@@ -86,19 +119,26 @@ public class TappedHandler : MonoBehaviour
 
 	public bool CheckFirstPlayer()
 	{
-
+		Debug.Log("CHECK FIRST PLAYER =================*********");
 		long localUserId;
 		using (User localUser = SharingStage.Instance.Manager.GetLocalUser())
 		{
 			localUserId = localUser.GetID();
+			Debug.Log(localUserId);
 		}
 
 		if (SharingStage.Instance.SessionUsersTracker.CurrentUsers[0].GetID() < localUserId)
 		{
+			Debug.Log(SharingStage.Instance.SessionUsersTracker.CurrentUsers[0].GetID());
+			
+			//Debug.Log(SharingStage.Instance.SessionUsersTracker.CurrentUsers[1].GetID());
+			Debug.Log(SharingStage.Instance.SessionUsersTracker.CurrentUsers.Count);
+			
+			Debug.Log("not first player");
 			return false;
 		}
-		else
-			return true;
+		else { Debug.Log("first player"); return true; }
+			
 
 	}
 	UnityEngine.XR.WSA.Input.GestureRecognizer recognizer;
