@@ -118,7 +118,6 @@ public class MappingPlaceholderScript : MonoBehaviour
 					g.transform.position = new Vector3(holocamera.transform.position.x, rect.position.y + 0.02f, holocamera.transform.position.z);
 					lava.transform.position = new Vector3(holocamera.transform.position.x, rect.position.y - 1.0f, holocamera.transform.position.z);
 
-
 					//g.transform.
 					break;
 

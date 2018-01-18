@@ -99,7 +99,7 @@ public class Energy : MonoBehaviour {
         g.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         g.layer = LayerMask.NameToLayer("Energy");
         g.AddComponent<BoxCollider>();
-		g.GetComponent<BoxCollider>().size = new Vector3(0.3f, 0.3f, 0.3f);
+		g.GetComponent<BoxCollider>().size = new Vector3(0.6f, 0.6f, 0.6f);
         EnergyObjects.Add(g);
     }
 
