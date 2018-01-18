@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
     public const int MaxHealth = 100;
-    public static int CurrentHealth;
+    public int CurrentHealth;
     public float HealthAlpha = 0.5f;
 
     // textures
@@ -29,11 +29,11 @@ public class Health : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //DecreaseHealth(1);
+        DecreaseHealth(1);
 		healthBar.sizeDelta = new Vector2(CurrentHealth, healthBar.sizeDelta.y);
 	}
 
-     public static bool DecreaseHealth(int amount)
+     public bool DecreaseHealth(int amount)
     {
         if (CurrentHealth - amount < 0)
         {
