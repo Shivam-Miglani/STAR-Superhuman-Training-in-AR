@@ -353,6 +353,9 @@
     <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Editor\Utilities\UnityNullConstraint.cs" />
     <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Editor\Utilities\UnityNullConstraintTests.cs" />
     <Compile Include="Assets\Assets\HoloToolkit-UnitTests\Editor\Utilities\WorldAnchorManagerTests.cs" />
+    <Compile Include="Assets\Mezanix\MezanixFX_Free_1_1\Editor\CombatAttackCI.cs" />
+    <Compile Include="Assets\Mezanix\MezanixFX_Free_1_1\Editor\HitCI.cs" />
+    <Compile Include="Assets\Mezanix\MezanixFX_Free_1_1\Editor\ParticleSystemSpawnerCI.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
     <Compile Include="Assets\SciFi HandLight Free\Editor\ImageEffects\BloomEditor.cs" />
