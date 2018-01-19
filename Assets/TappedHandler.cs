@@ -19,8 +19,8 @@ using UnityEngine.VR.WSA.Sharing;
 public class TappedHandler : MonoBehaviour
 {
 	public PrefabSpawnManager spawnManager;
-	public bool isCorePlaced = false;
-	public bool isFirstPlayer = false;
+	public static bool isCorePlaced = false;
+	public static bool isFirstPlayer = false;
 	public GameObject core;
 	public bool idsFound = false;
 	public GameObject path;
@@ -66,8 +66,8 @@ public class TappedHandler : MonoBehaviour
 					
 				}
 				
-				Vector3 retval = Camera.main.transform.position + Camera.main.transform.forward * 4;
-				retval = new Vector3(retval.x, path.transform.position.y, retval.z);
+				Vector3 retval = Camera.main.transform.position + Camera.main.transform.forward * 2;
+				retval = new Vector3(retval.x, path.transform.position.y + 0.02f, retval.z);
 				core.transform.position = Vector3.Lerp(core.transform.position, retval, 0.2f);
 				this.recognizer.TappedEvent += OnTapped;
 			}
@@ -135,6 +135,7 @@ public class TappedHandler : MonoBehaviour
 			Debug.Log(SharingStage.Instance.SessionUsersTracker.CurrentUsers.Count);
 			
 			Debug.Log("not first player");
+			isCorePlaced = true;
 			return false;
 		}
 		else { Debug.Log("first player"); return true; }

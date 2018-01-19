@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Ice
+  m_Shader: {fileID: 4800000, guid: 9bdca7affd0f63443b968c70fbb67715, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Diffuse:
+        m_Texture: {fileID: 2800000, guid: b006483577d58254abbead5211673a6a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Illumination:
+        m_Texture: {fileID: 2800000, guid: eeb7ad11272302842a3444a7cebf14ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 42340ed7071b9664b8b4c3b630613c6f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecMap:
+        m_Texture: {fileID: 2800000, guid: eeb7ad11272302842a3444a7cebf14ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _FPow: 1
+    - _Factor: 1
+    - _Glossyness: 0.60714287
+    - _SpecK: 8
+    - _Strength: 16
+    - _Transparency: 0.53
+    - _Wrapping: 0.6785714
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0.3647059}
+    - _Emission: {r: 0, g: 0.751724, b: 1, a: 0.78431374}

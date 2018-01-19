@@ -112,7 +112,7 @@ public class GeroBeam : MonoBehaviour {
 		}
         float ShotFlashScale = FlashSize * Width * 5.0f;
         Flash.GetComponent<ScaleWiggle>().DefScale = new Vector3(ShotFlashScale, ShotFlashScale, ShotFlashScale);
-        HitObj.SetViewPat(bHitNow && !BP.bEnd);
+        //HitObj.SetViewPat(bHitNow && !BP.bEnd);
 
 		this.gameObject.GetComponent<Renderer>().material.SetFloat("_AddTex",Time.frameCount*-0.05f*BP.AnimationSpd*10);
 		this.gameObject.GetComponent<Renderer>().material.SetFloat("_BeamLength",NowLength);

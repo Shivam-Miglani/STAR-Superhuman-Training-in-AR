@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject Shot1;
-    public GameObject Shot2;
+   // public GameObject Shot2;
     GameObject Bullet;
     GameObject focus;
     public float nextShoot = 3f;
@@ -33,6 +33,8 @@ public class EnemyShooting : MonoBehaviour
         InvokeRepeating("enShooting", nextShoot, nextShoot);
         dir = Random.insideUnitSphere;
         destination = dir * 0.5f;
+
+		
     }
 
     // Update is called once per frame
@@ -89,8 +91,9 @@ public class EnemyShooting : MonoBehaviour
 
     void enShooting()
     {
-        // Health h = Camera.main.GetComponent<Health>();
-        if (Health.CurrentHealth > 0f)
+		
+		// Health h = Camera.main.GetComponent<Health>();
+		if (Health.CurrentHealth > 0f)
         {
             Vector3 randomised = Random.insideUnitCircle * 0.2f;
             Vector3 playerPosition = Camera.main.transform.position - new Vector3(0f, 0.5f, 0f) + randomised;
@@ -98,7 +101,7 @@ public class EnemyShooting : MonoBehaviour
 
             Quaternion Rotation = Quaternion.LookRotation(playerDirection);
 
-            //  RaycastHit hitInfo;
+            // RaycastHit hitInfo;
 
             gunAudio.Play();
             GameObject Bullet;
@@ -106,30 +109,19 @@ public class EnemyShooting : MonoBehaviour
             //Fire
             NowShot = (GameObject)Instantiate(Bullet, this.transform.position - new Vector3(0f, 0f, 0.5f), Rotation);
 
-            StartCoroutine(particleTrackWaitToSet(2.0f, playerDirection));
-            /*
-                        if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
-                        {
+			 StartCoroutine(particleTrackWaitToSet(2.0f, playerDirection));
+		/*	if (Physics.Raycast(this.transform.position, playerDirection, out hitInfo))
+			{
+				Debug.Log("hit on the palyer !!");
+				if (Camera.main.gameObject == hitInfo.collider.gameObject)
+				{
+					Health.DecreaseHealth(5);
+					Debug.Log("health decrease !!");
+				}
 
-                            if (Camera.main.gameObject == hitInfo.collider.gameObject)
-                            {   
-                                Health.DecreaseHealth(5);
-                            }
-                            //else
-                            //{
-
-                            //}
-                        }
-                        Destroy(NowShot, 2.0f);
-
-                    }
-                    else
-                    {
-                        return;
-                    }
-                    */
-
-        }
+			}
+*/
+		}
         Destroy(NowShot, 2.0f);
 
     }
@@ -143,6 +135,7 @@ public class EnemyShooting : MonoBehaviour
             if (Camera.main.gameObject == hitInfo.collider.gameObject)
             {
                 Health.DecreaseHealth(5);
+				Debug.Log("health decrease !!");
             }
            
         }

@@ -35,13 +35,13 @@ public class Health : MonoBehaviour {
 
      public static bool DecreaseHealth(int amount)
     {
-        if (CurrentHealth - amount < 0)
-        {
-            return false;
-        }
+		if (CurrentHealth - amount < 0)
+		{
+			return false;
+		}
 
-        CurrentHealth -= amount;
-        return true;
+		CurrentHealth -= amount;
+		return true;
     }
 
 
@@ -49,8 +49,8 @@ public class Health : MonoBehaviour {
     void OnGUI()
     {
         int posX = 10;
-        int posY = 27;
-        int height = 15;
+        int posY = 40;
+        int height = 60;
 
         float percentage = HealthBarWidth * ((float)CurrentHealth / (float)MaxHealth);
         GUI.color = new Color(1, 1, 1, HealthAlpha);
