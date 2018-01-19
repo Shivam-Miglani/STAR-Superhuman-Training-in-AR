@@ -195,7 +195,6 @@ namespace HoloToolkit.Sharing.Spawning
         /// <returns>True if the function succeeded, false if not.</returns>
         public bool Spawn(SyncSpawnedObject dataModel, Vector3 localPosition, Quaternion localRotation, GameObject parent, string baseName, bool isOwnedLocally)
         {
-			//localRotation = Quaternion.Euler(0, 0, 0);
             return Spawn(dataModel, localPosition, localRotation, null, parent, baseName, isOwnedLocally);
         }
 

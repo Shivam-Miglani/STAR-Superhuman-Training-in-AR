@@ -14,12 +14,13 @@ public class GeroBeamHit : MonoBehaviour {
     public Color col;
 	public void SetViewPat(bool b)
 	{
-		if(b){
-			PatA.emissionRate = PatA_rate;
+        if (b) {
+            PatA.emissionRate = PatA_rate;
 			PatB.emissionRate = PatB_rate;
 			HitFlash.GetComponent<Renderer>().enabled = true;
 		}else{
-			PatA.emissionRate = 0;
+
+            PatA.emissionRate = 0;
 			PatB.emissionRate = 0;
 			HitFlash.GetComponent<Renderer>().enabled = false;
 		}

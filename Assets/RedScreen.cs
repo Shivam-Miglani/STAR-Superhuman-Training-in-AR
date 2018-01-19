@@ -6,6 +6,7 @@ public class RedScreen : MonoBehaviour
 {
 
     public GameObject redCanvas;
+	private int counter = 0;
 
     // Use this for initialization
     void Start()
@@ -27,6 +28,12 @@ public class RedScreen : MonoBehaviour
 			{
 				Debug.Log("Inside RedScreen's update function onPath false");
 				redCanvas.SetActive(true);
+				counter++;
+				if (counter >= 50)
+				{
+					Health.DecreaseHealth(10);
+					counter = 0;
+				}
 			}
 		}
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
     public const int MaxHealth = 100;
-    public int CurrentHealth;
+    public static int CurrentHealth;
     public float HealthAlpha = 0.5f;
 
     // textures
@@ -29,19 +29,19 @@ public class Health : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        DecreaseHealth(1);
+        //DecreaseHealth(1);
 		healthBar.sizeDelta = new Vector2(CurrentHealth, healthBar.sizeDelta.y);
 	}
 
-     public bool DecreaseHealth(int amount)
+     public static bool DecreaseHealth(int amount)
     {
-        if (CurrentHealth - amount < 0)
-        {
-            return false;
-        }
+		if (CurrentHealth - amount < 0)
+		{
+			return false;
+		}
 
-        CurrentHealth -= amount;
-        return true;
+		CurrentHealth -= amount;
+		return true;
     }
 
 
@@ -49,8 +49,8 @@ public class Health : MonoBehaviour {
     void OnGUI()
     {
         int posX = 10;
-        int posY = 27;
-        int height = 15;
+        int posY = 40;
+        int height = 60;
 
         float percentage = HealthBarWidth * ((float)CurrentHealth / (float)MaxHealth);
         GUI.color = new Color(1, 1, 1, HealthAlpha);
