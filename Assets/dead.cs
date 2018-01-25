@@ -11,7 +11,7 @@ public class dead : MonoBehaviour
 	void Start()
 	{
 		text = GetComponent<Text>();
-
+		text.text = "";
 	}
 
 	// Update is called once per frame

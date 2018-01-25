@@ -25,6 +25,10 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
 	private bool pb2 = false;
 	private bool pr1 = false;
 	private bool pr2 = false;
+	private int count_b1 = 0;
+	private int count_b2 = 0;
+	private int count_r1 = 0;
+	private int count_r2 = 0;
 	public GameObject core;
 	CustomMessages customMessages;
 
@@ -36,11 +40,17 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
 		win = false;
 		NowShot = null;
         count = 0;
-		//InputManager.Instance.PushFallbackInputHandler(gameObject);
-		customMessages = CustomMessages.Instance;
+		//counts for shields.
+		count_b1 = 0;
+		count_b2 = 0;
+		count_r1 = 0;
+		count_r2 = 0;
+	//InputManager.Instance.PushFallbackInputHandler(gameObject);
+	customMessages = CustomMessages.Instance;
 		customMessages.MessageHandlers[CustomMessages.TestMessageID.BlueShieldsDestroyed] = this.UpdateCoreDestructionBlue;
 		customMessages.MessageHandlers[CustomMessages.TestMessageID.RedShieldsDestroyed] = this.UpdateCoreDestructionRed;
-		
+			
+
 	}
     // Called by GazeGestureManager when the user performs a Select gesture    
     void Update()
@@ -54,9 +64,10 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
 		{
 			win = true;
 			coopscore = 100;
-			GameObject ex = core.transform.Find("Explosion").gameObject;
-			ex.SetActive(true);
-			Destroy(core, 1f);
+			//GameObject ex = core.transform.Find("Explosion").gameObject;
+			TappedHandler.destroyCore = true;
+			//ex.SetActive(true);
+			//Destroy(core, 1f);
 		}
 
 	}
@@ -100,14 +111,22 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
 			{
 				if (focus.name == "Planeb1")
 				{
-					focus.SetActive(false);
-					pb1 = true;
+					count_b1++;
+					if (count_b1 == 2)
+					{
+						focus.SetActive(false);
+						pb1 = true;
+					}
 
 				} else
 				if (focus.name == "Planeb2")
 				{
-					focus.SetActive(false);
-					pb2 = true;
+					count_b2++;
+					if (count_b2 == 2)
+					{
+						focus.SetActive(false);
+						pb2 = true;
+					}
 				}
 				else
 				{
@@ -123,22 +142,28 @@ public class SphereCommands : MonoBehaviour, IInputClickHandler
 
 				if (pb1 && pb2)
 				{
-
 					CustomMessages.Instance.SendBlueShieldsDestroyed();
-					
 				}
 
 			} else if (!TappedHandler.isFirstPlayer)
 			{
 				if (focus.name == "Planer1")
 				{
-					focus.SetActive(false);
-					pr1 = true;
+					++count_r1;
+					if (count_r1 == 2)
+					{
+						focus.SetActive(false);
+						pr1 = true;
+					}
 				}
 				else if (focus.name == "Planer2")
 				{
-					focus.SetActive(false);
-					pr2 = true;
+					++count_r2;
+					if (count_r2 == 2)
+					{
+						focus.SetActive(false);
+						pr2 = true;
+					}
 				}
 				else
 				{
