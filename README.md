@@ -7,3 +7,5 @@ The associated research paper:
 
 https://graphics.tudelft.nl/Publications-new/2018/KMRSBLB18/a7-kegeleers.pdf
 
+A smaller version of game was also tested out at the International Festival of Technology, TU Delft. 
+
