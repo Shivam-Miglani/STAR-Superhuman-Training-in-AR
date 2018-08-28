@@ -3,6 +3,7 @@ This is code for superhuman sports game called "STAR" which is a step taken towa
 
 http://superhuman-sports.org/delft/
 
-The associated research paper is given here:
+The associated research paper:
+
 https://graphics.tudelft.nl/Publications-new/2018/KMRSBLB18/a7-kegeleers.pdf
 
