@@ -1,4 +1,6 @@
-﻿using HoloToolkit.Unity;
+﻿using HoloToolkit.Sharing;
+using HoloToolkit.Sharing.Tests;
+using HoloToolkit.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,21 +17,25 @@ public class MappingPlaceholderScript : MonoBehaviour
 	public GameObject g;
 	public GameObject holocamera;
 	public GameObject lava;
+	public bool isFpMsgSentOrRcvd;
 	private SpatialUnderstandingDllTopology.TopologyResult[] resultsTopology = new SpatialUnderstandingDllTopology.TopologyResult[512];
 
 
 	int frameCount;
 	IntPtr statsPtr;
 	public static bool scanning = true;
-
-
+	CustomMessages customMessages;
+	
 	private bool draw = true;
 
 
 	// Use this for initialization
 	void Start()
 	{
+		isFpMsgSentOrRcvd = false;
 		scanning = true;
+		customMessages = CustomMessages.Instance;
+		customMessages.MessageHandlers[CustomMessages.TestMessageID.FirstPlayer] = this.SetPlayerRole;
 	}
 
 	public void ScannedEnough()
@@ -53,6 +59,13 @@ public class MappingPlaceholderScript : MonoBehaviour
 			if (draw)
 			{
 				this.findPositionsOnFloor();
+			}
+			if (!isFpMsgSentOrRcvd)
+			{
+				//whoever sends first message after scanning becomes first player.
+				CustomMessages.Instance.SendFirstPlayer();
+				isFpMsgSentOrRcvd = true;
+				TappedHandler.isFirstPlayer = true;
 			}
 
 		}
@@ -118,6 +131,7 @@ public class MappingPlaceholderScript : MonoBehaviour
 					g.transform.position = new Vector3(holocamera.transform.position.x, rect.position.y + 0.02f, holocamera.transform.position.z);
 					lava.transform.position = new Vector3(holocamera.transform.position.x, rect.position.y - 1.0f, holocamera.transform.position.z);
 
+
 					//g.transform.
 					break;
 
@@ -127,6 +141,18 @@ public class MappingPlaceholderScript : MonoBehaviour
 			}
 
 		}
+	}
+
+	public void SetPlayerRole(NetworkInMessage msg)
+	{
+		Debug.Log("Setting Player 1 or 2.");
+		// Parse the message
+		long userID = msg.ReadInt64();
+		TappedHandler.isFirstPlayer = false;
+		TappedHandler.isCorePlaced = true;
+		//prevent sending the broadcast message.
+		isFpMsgSentOrRcvd = true;
+
 	}
 
 

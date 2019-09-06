@@ -21,6 +21,9 @@ namespace HoloToolkit.Sharing.Tests
         public enum TestMessageID : byte
         {
             HeadTransform = MessageID.UserMessageIDStart,
+			FirstPlayer,
+			BlueShieldsDestroyed,
+			RedShieldsDestroyed,
             Max
         }
 
@@ -163,9 +166,73 @@ namespace HoloToolkit.Sharing.Tests
             }
         }
 
-        #region HelperFunctionsForWriting
+		public void SendBlueShieldsDestroyed()
+		{
+			Debug.Log("Broadcasting Blue Shields Destroyed");
+			// If we are connected to a session, broadcast our head info
+			if (this.serverConnection != null && this.serverConnection.IsConnected())
+			{
+				// Create an outgoing network message to contain all the info we want to send
+				NetworkOutMessage msg = CreateMessage((byte)TestMessageID.BlueShieldsDestroyed);
 
-        private void AppendTransform(NetworkOutMessage msg, Vector3 position, Quaternion rotation)
+				//AppendTransform(msg, position, rotation);
+
+				// Send the message as a broadcast, which will cause the server to forward it to all other users in the session.
+				this.serverConnection.Broadcast(
+					msg,
+					MessagePriority.Immediate,
+					MessageReliability.ReliableOrdered,
+					MessageChannel.Avatar);
+				Debug.Log("**********Broadcasting Blue Shields Destroyed");
+			}
+			
+		}
+
+		public void SendRedShieldsDestroyed()
+		{
+			Debug.Log("Broadcasting Red Shields Destroyed");
+			// If we are connected to a session, broadcast our head info
+			if (this.serverConnection != null && this.serverConnection.IsConnected())
+			{
+				// Create an outgoing network message to contain all the info we want to send
+				NetworkOutMessage msg = CreateMessage((byte)TestMessageID.RedShieldsDestroyed);
+
+				//AppendTransform(msg, position, rotation);
+
+				// Send the message as a broadcast, which will cause the server to forward it to all other users in the session.
+				this.serverConnection.Broadcast(
+					msg,
+					MessagePriority.Immediate,
+					MessageReliability.ReliableOrdered,
+					MessageChannel.Avatar);
+				Debug.Log("**********Broadcasting Red Shields Destroyed");
+			}
+		}
+
+		public void SendFirstPlayer()
+		{
+			Debug.Log("Broadcasting First Player");
+			// If we are connected to a session, broadcast our head info
+			if (this.serverConnection != null && this.serverConnection.IsConnected())
+			{
+				// Create an outgoing network message to contain all the info we want to send
+				NetworkOutMessage msg = CreateMessage((byte)TestMessageID.FirstPlayer);
+
+				//AppendTransform(msg, position, rotation);
+
+				// Send the message as a broadcast, which will cause the server to forward it to all other users in the session.
+				this.serverConnection.Broadcast(
+					msg,
+					MessagePriority.Immediate,
+					MessageReliability.ReliableOrdered,
+					MessageChannel.Avatar);
+				Debug.Log("**********Broadcasting First Player finished scanning.");
+			}
+		}
+
+		#region HelperFunctionsForWriting
+
+		private void AppendTransform(NetworkOutMessage msg, Vector3 position, Quaternion rotation)
         {
             AppendVector3(msg, position);
             AppendQuaternion(msg, rotation);

@@ -1,6 +1,7 @@
 ﻿using HoloToolkit.Sharing;
 using HoloToolkit.Sharing.Spawning;
 using HoloToolkit.Unity.InputModule;
+using System;
 using UnityEngine;
 #if UNITY_WSA && !UNITY_EDITOR
 using System.Collections.Generic;
@@ -19,11 +20,13 @@ using UnityEngine.VR.WSA.Sharing;
 public class TappedHandler : MonoBehaviour
 {
 	public PrefabSpawnManager spawnManager;
-	public bool isCorePlaced = false;
-	public bool isFirstPlayer = false;
+	public static bool isCorePlaced = false;
+	public static bool isFirstPlayer = false;
 	public GameObject core;
 	public bool idsFound = false;
 	public GameObject path;
+	public SyncSpawnedObject ourCore;
+	public static bool destroyCore;
 	/// <summary>
 	/// Debug text for displaying information.
 	/// </summary>
@@ -35,6 +38,7 @@ public class TappedHandler : MonoBehaviour
   {
 		this.recognizer = new UnityEngine.XR.WSA.Input.GestureRecognizer();
 		this.recognizer.StartCapturingGestures();
+		destroyCore = false;
 		
 		//if(HoloToolkit.Sharing.Tests.ImportExportAnchorManager.AnchorDebugText != null & isFirstPlayer){
 		//	HoloToolkit.Sharing.Tests.ImportExportAnchorManager.AnchorDebugText.text += "\nYou are player 1";
@@ -53,7 +57,7 @@ public class TappedHandler : MonoBehaviour
 		}
 		if (idsFound)
 		{
-			isFirstPlayer = CheckFirstPlayer();
+			//isFirstPlayer = CheckFirstPlayer();
 			
 			if (!MappingPlaceholderScript.scanning & !isCorePlaced & isFirstPlayer)
 			{
@@ -66,8 +70,8 @@ public class TappedHandler : MonoBehaviour
 					
 				}
 				
-				Vector3 retval = Camera.main.transform.position + Camera.main.transform.forward * 4;
-				retval = new Vector3(retval.x, path.transform.position.y, retval.z);
+				Vector3 retval = Camera.main.transform.position + Camera.main.transform.forward * 2;
+				retval = new Vector3(retval.x, path.transform.position.y + 0.02f, retval.z);
 				core.transform.position = Vector3.Lerp(core.transform.position, retval, 0.2f);
 				this.recognizer.TappedEvent += OnTapped;
 			}
@@ -77,6 +81,18 @@ public class TappedHandler : MonoBehaviour
 				
 			}
 
+		}
+
+		if (destroyCore)
+		{
+			try
+			{
+				GameObject ex = ourCore.GameObject.transform.Find("Explosion").gameObject;
+				ex.SetActive(true);
+			}
+			catch (Exception e) { Debug.Log("Explosion exploded (NOT)"); }
+
+			this.spawnManager.Delete(ourCore);
 		}
 	}
 	void OnTapped(UnityEngine.XR.WSA.Input.InteractionSourceKind source, int tapCount, Ray headRay)
@@ -92,16 +108,16 @@ public class TappedHandler : MonoBehaviour
 			var corePosition =
 			  this.gameObject.transform.InverseTransformPoint(
 				  core.transform.position);
-			  // (GazeManager.Instance.GazeOrigin + GazeManager.Instance.GazeNormal * 4.0f));
+			// (GazeManager.Instance.GazeOrigin + GazeManager.Instance.GazeNormal * 4.0f));
 
 			// Use the span manager to span a 'SyncSpawnedObject' at that position with
 			// some random rotation, parent it off our gameObject, give it a base name (MyCube)
 			// and do not claim ownership of it so it stays behind in the scene even if our
 			// device leaves the session.
 			// var corePosition = core.transform.InverseTransformPoint(core.transform.position);
-
+			ourCore = new SyncSpawnedObject();
 			this.spawnManager.Spawn(
-			  new SyncSpawnedObject(),
+			  ourCore,
 			  corePosition,
 			  core.transform.rotation,
 			  this.gameObject,
@@ -135,6 +151,7 @@ public class TappedHandler : MonoBehaviour
 			Debug.Log(SharingStage.Instance.SessionUsersTracker.CurrentUsers.Count);
 			
 			Debug.Log("not first player");
+			isCorePlaced = true;
 			return false;
 		}
 		else { Debug.Log("first player"); return true; }

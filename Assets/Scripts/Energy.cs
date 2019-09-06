@@ -62,6 +62,7 @@ public class Energy : MonoBehaviour {
             }
 
 			RaycastHit hit;
+			//Vector3 rayForward = new Vector3(0f, 0f, 0.2f);
 			if (Physics.Raycast(Camera.main.transform.position, Vector3.down, out hit, Mathf.Infinity, EnergyMask))
 			{
 				PickupEnergy(hit);
@@ -99,19 +100,19 @@ public class Energy : MonoBehaviour {
         g.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         g.layer = LayerMask.NameToLayer("Energy");
         g.AddComponent<BoxCollider>();
-		g.GetComponent<BoxCollider>().size = new Vector3(0.6f, 0.6f, 0.6f);
+		g.GetComponent<BoxCollider>().size = new Vector3(2f, 2f, 2f);
         EnergyObjects.Add(g);
     }
 
     public bool DecreaseEnergy(int amount)
     {
-        if(CurrentEnergy - amount < 0)
-        {
-            return false;
-        }
+		if (CurrentEnergy - amount < 0)
+		{
+			return false;
+		}
 
-        CurrentEnergy -= amount;
-        return true;
+		CurrentEnergy -= amount;
+		return true;
     }
 
     public void IncreaseEnergy(int amount)
